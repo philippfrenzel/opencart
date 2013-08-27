@@ -1,7 +1,7 @@
 <?php echo $header; ?>
 <ul class="breadcrumb">
   <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-  <li> <a href="<?php echo $breadcrumb['href']; ?>"> <?php echo $breadcrumb['text']; ?> </a> </li>
+  <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
   <?php } ?>
 </ul>
 <div class="row">
@@ -86,22 +86,22 @@
         <div class="tab-pane form-horizontal" id="tab-reviews">
           <div id="review"></div>
           <h2 id="review-title"><?php echo $text_write; ?></h2>
-          <div class="control-group">
-            <div class="control-label"> <?php echo $entry_name; ?> </div>
-            <div class="controls">
+          <div class="form-group">
+            <div class="col-sm-2 control-label"> <?php echo $entry_name; ?> </div>
+            <div class="col-sm-10">
               <input type="text" name="name" value="" />
             </div>
           </div>
-          <div class="control-group">
-            <div class="control-label"> <?php echo $entry_review; ?> </div>
-            <div class="controls">
+          <div class="form-group">
+            <div class="col-sm-2 control-label"> <?php echo $entry_review; ?> </div>
+            <div class="col-sm-10">
               <textarea name="text" style="resize: vertical; min-height: 160px;" class="input-block-level"></textarea>
               <div class="alert alert-form"><?php echo $text_note; ?></div>
             </div>
           </div>
-          <div class="control-group">
-            <div class="control-label"> <?php echo $entry_rating; ?> </div>
-            <div class="controls"> <span><?php echo $entry_bad; ?></span>&nbsp;
+          <div class="form-group">
+            <div class="col-sm-2 control-label"> <?php echo $entry_rating; ?> </div>
+            <div class="col-sm-10"> <span><?php echo $entry_bad; ?></span>&nbsp;
               <input type="radio" name="rating" value="1" />
               &nbsp;
               <input type="radio" name="rating" value="2" />
@@ -113,9 +113,9 @@
               <input type="radio" name="rating" value="5" />
               &nbsp;<span><?php echo $entry_good; ?></span> </div>
           </div>
-          <div class="control-group">
-            <div class="control-label"> <?php echo $entry_captcha; ?> </div>
-            <div class="controls">
+          <div class="form-group">
+            <div class="col-sm-2 control-label"> <?php echo $entry_captcha; ?> </div>
+            <div class="col-sm-10">
               <input type="text" name="captcha" value="" />
               <br />
               <br />
@@ -144,7 +144,7 @@
         <h1><?php echo $heading_title; ?></h1>
         
         <!-- Product Info -->
-        <ul class="unstyled">
+        <ul class="list-unstyled">
           <?php if ($manufacturer) { ?>
           <li><?php echo $text_manufacturer; ?> <a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a></li>
           <?php } ?>
@@ -157,7 +157,7 @@
         
         <!-- Price -->
         <?php if ($price) { ?>
-        <ul class="unstyled">
+        <ul class="list-unstyled">
           <!-- <li><?php echo $text_price; ?></li> -->
           <?php if (!$special) { ?>
           <li>
@@ -193,11 +193,11 @@
         <h3><?php echo $text_option; ?></h3>
         <?php foreach ($options as $option) { ?>
         <?php if ($option['type'] == 'select') { ?>
-        <div class="control-group">
+        <div class="form-group">
           <ul class="unstyled option" id="option-<?php echo $option['product_option_id']; ?>">
             <li>
               <?php if ($option['required']) { ?>
-              <span class="text-error">*</span>
+              <div class="text-danger">*</div>
               <?php } ?>
               <?php echo $option['name']; ?> </li>
             <li>
@@ -216,11 +216,11 @@
         </div>
         <?php } ?>
         <?php if ($option['type'] == 'radio') { ?>
-        <div class="control-group">
+        <div class="form-group">
           <ul class="unstyled option" id="option-<?php echo $option['product_option_id']; ?>">
             <li>
               <?php if ($option['required']) { ?>
-              <span class="text-error">*</span>
+              <div class="text-danger">*</div>
               <?php } ?>
               <?php echo $option['name']; ?> </li>
             <?php foreach ($option['option_value'] as $option_value) { ?>
@@ -237,11 +237,11 @@
         </div>
         <?php } ?>
         <?php if ($option['type'] == 'checkbox') { ?>
-        <div class="control-group">
+        <div class="form-group">
           <ul class="unstyled option" id="option-<?php echo $option['product_option_id']; ?>">
             <li>
               <?php if ($option['required']) { ?>
-              <span class="text-error">*</span>
+              <div class="text-danger">*</div>
               <?php } ?>
               <?php echo $option['name']; ?> </li>
             <?php foreach ($option['option_value'] as $option_value) { ?>
@@ -258,11 +258,11 @@
         </div>
         <?php } ?>
         <?php if ($option['type'] == 'image') { ?>
-        <div class="control-group">
+        <div class="form-group">
           <ul class="unstyled option option-image" id="option-<?php echo $option['product_option_id']; ?>">
             <li>
               <?php if ($option['required']) { ?>
-              <span class="text-error">*</span>
+              <div class="text-danger">*</div>
               <?php } ?>
               <?php echo $option['name']; ?> </li>
             <?php foreach ($option['option_value'] as $option_value) { ?>
@@ -279,11 +279,11 @@
         </div>
         <?php } ?>
         <?php if ($option['type'] == 'text') { ?>
-        <div class="control-group">
+        <div class="form-group">
           <ul class="unstyled option" id="option-<?php echo $option['product_option_id']; ?>">
             <li>
               <?php if ($option['required']) { ?>
-              <span class="text-error">*</span>
+              <div class="text-danger">*</div>
               <?php } ?>
               <?php echo $option['name']; ?> </li>
             <input class="input-block-level" type="text" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option['option_value']; ?>" />
@@ -291,11 +291,11 @@
         </div>
         <?php } ?>
         <?php if ($option['type'] == 'textarea') { ?>
-        <div class="control-group">
+        <div class="form-group">
           <ul class="unstyled option" id="option-<?php echo $option['product_option_id']; ?>">
             <li>
               <?php if ($option['required']) { ?>
-              <span class="text-error">*</span>
+              <div class="text-danger">*</div>
               <?php } ?>
               <?php echo $option['name']; ?> </li>
             <textarea class="input-block-level" name="option[<?php echo $option['product_option_id']; ?>]" cols="40" rows="5"><?php echo $option['option_value']; ?></textarea>
@@ -303,11 +303,11 @@
         </div>
         <?php } ?>
         <?php if ($option['type'] == 'file') { ?>
-        <div class="control-group">
+        <div class="form-group">
           <ul class="unstyled option" id="option-<?php echo $option['product_option_id']; ?>">
             <li>
               <?php if ($option['required']) { ?>
-              <span class="text-error">*</span>
+              <div class="text-danger">*</div>
               <?php } ?>
               <?php echo $option['name']; ?> </li>
             <input type="button" class="btn" value="<?php echo $button_upload; ?>" id="button-option-<?php echo $option['product_option_id']; ?>">
@@ -316,11 +316,11 @@
         </div>
         <?php } ?>
         <?php if ($option['type'] == 'date') { ?>
-        <div class="control-group">
+        <div class="form-group">
           <ul class="unstyled option" id="option-<?php echo $option['product_option_id']; ?>">
             <li>
               <?php if ($option['required']) { ?>
-              <span class="text-error">*</span>
+              <div class="text-danger">*</div>
               <?php } ?>
               <?php echo $option['name']; ?> </li>
             <input class="input-block-level date" type="text" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option['option_value']; ?>" class="date" />
@@ -328,11 +328,11 @@
         </div>
         <?php } ?>
         <?php if ($option['type'] == 'datetime') { ?>
-        <div class="control-group">
+        <div class="form-group">
           <ul class="unstyled option" id="option-<?php echo $option['product_option_id']; ?>">
             <li>
               <?php if ($option['required']) { ?>
-              <span class="text-error">*</span>
+              <div class="text-danger">*</div>
               <?php } ?>
               <?php echo $option['name']; ?> </li>
             <input class="input-block-level datetime" type="text" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option['option_value']; ?>" />
@@ -340,11 +340,11 @@
         </div>
         <?php } ?>
         <?php if ($option['type'] == 'time') { ?>
-        <div class="control-group">
+        <div class="form-group">
           <ul class="unstyled option" id="option-<?php echo $option['product_option_id']; ?>">
             <li>
               <?php if ($option['required']) { ?>
-              <span class="text-error">*</span>
+              <div class="text-danger">*</div>
               <?php } ?>
               <?php echo $option['name']; ?> </li>
             <input class="input-block-level time" type="text" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option['option_value']; ?>" />
@@ -362,7 +362,7 @@
           </li>
           <input type="hidden" name="product_id" size="2" value="<?php echo $product_id; ?>" />
           <li>
-            <input class="btn btn-primary btn-large btn-block" type="button" value="<?php echo $button_cart; ?>" id="button-cart" />
+            <input class="btn btn-primary btn-lg btn-block" type="button" value="<?php echo $button_cart; ?>" id="button-cart" />
           </li>
           <!-- <li><?php echo $text_or; ?></li> -->
           <?php if ($minimum > 1) { ?>
@@ -454,7 +454,7 @@ $('#button-cart').click(function() {
             if (json['error']) {
                 if (json['error']['option']) {
                     for (i in json['error']['option']) {
-                        $('#option-' + i).after('<div class="error">' + json['error']['option'][i] + '</div>');
+                        $('#option-' + i).after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
                     }
                 }
             } 
@@ -497,7 +497,7 @@ new AjaxUpload('#button-option-<?php echo $option['product_option_id']; ?>', {
         }
         
         if (json['error']) {
-            $('#option-<?php echo $option['product_option_id']; ?>').after('<div class="error">' + json['error'] + '</div>');
+            $('#option-<?php echo $option['product_option_id']; ?>').after('<div class="text-danger">' + json['error'] + '</div>');
         }
         
         $('.loading').remove(); 
